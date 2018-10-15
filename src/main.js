@@ -5,7 +5,7 @@ import store from '../store'
 import './registerServiceWorker'
 
 import 'normalize.css/normalize.css' // A modern alternative to CSS resets
-
+import '@/icons' // icon
 import '@/styles/index.scss' // global css CHANGE
 
 import ElementUI from 'element-ui'
@@ -16,7 +16,7 @@ Vue.use(ElementUI, { locale })
 Vue.config.productionTip = false
 
 new Vue({
-	router,
-	store,
-	render: h => h(App)
+  router,
+  store,
+  render: h => h(App)
 }).$mount('#app')

@@ -1,19 +1,8 @@
 <template>
   <el-menu class="navbar" mode="horizontal">
+    <!-- <hamburger v-if="device === 'mobile' && !sidebar.opened" :toggle-click="toggleSideBar" :is-active="sidebar.opened" class="hamburger-container"/> -->
     <hamburger :toggle-click="toggleSideBar" :is-active="sidebar.opened" class="hamburger-container"/>
     <breadcrumb />
-    <!-- <el-dropdown class="avatar-container" trigger="click">
-      <div class="">
-        <i class="el-icon-caret-bottom"/>
-      </div>
-      <el-dropdown-menu slot="dropdown" class="user-dropdown">
-        <router-link class="inlineBlock" to="/">
-          <el-dropdown-item>
-            Home
-          </el-dropdown-item>
-        </router-link>
-      </el-dropdown-menu>
-    </el-dropdown> -->
   </el-menu>
 </template>
 
@@ -23,20 +12,21 @@ import Breadcrumb from '@/components/Breadcrumb'
 import Hamburger from '@/components/Hamburger'
 
 export default {
-	components: {
-		Breadcrumb,
-		Hamburger
-	},
-	computed: {
-		...mapGetters('app', {
-			sidebar: 'sidebar'
-		})
-	},
-	methods: {
-		toggleSideBar () {
-			this.$store.dispatch('app/ToggleSideBar')
-		}
-	}
+  components: {
+    Breadcrumb,
+    Hamburger
+  },
+  computed: {
+    ...mapGetters('app', {
+      sidebar: 'sidebar',
+      device: 'device'
+    })
+  },
+  methods: {
+    toggleSideBar () {
+      this.$store.dispatch('app/ToggleSideBar')
+    }
+  }
 }
 </script>
 
@@ -45,6 +35,9 @@ export default {
   height: 50px;
   line-height: 50px;
   border-radius: 0px !important;
+  background-color: #fca516;
+  /* position: sticky;
+  top: 0; */
   .hamburger-container {
     line-height: 58px;
     height: 50px;

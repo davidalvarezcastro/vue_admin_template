@@ -5,7 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "svgo": "svgo -f src/icons/svg --config=src/icons/svgo.yml"
   },
   "dependencies": {
     "normalize.css": "^8.0.0",
@@ -25,6 +26,8 @@
     "node-sass": "^4.9.0",
     "path-to-regexp": "^2.4.0",
     "sass-loader": "^7.0.1",
+    "svg-sprite-loader": "^4.1.2",
+    "svgo": "^1.1.1",
     "vue-template-compiler": "^2.5.17"
   },
   "eslintConfig": {
@@ -39,7 +42,7 @@
     "rules": {
       "indent": [
         2,
-        "tab"
+        2
       ],
       "no-tabs": 0
     },

@@ -15,32 +15,32 @@ import { Navbar, Sidebar, AppMain } from './components'
 import ResizeMixin from './mixin/ResizeHandler'
 
 export default {
-	name: 'Layout',
-	mixins: [ResizeMixin],
-	components: {
-		Navbar,
-		Sidebar,
-		AppMain
-	},
-	computed: {
-		...mapGetters('app', {
-			sidebar: 'sidebar',
-			device: 'device'
-		}),
-		classObj () {
-			return {
-				hideSidebar: !this.sidebar.opened,
-				openSidebar: this.sidebar.opened,
-				withoutAnimation: this.sidebar.withoutAnimation,
-				mobile: this.device === 'mobile'
-			}
-		}
-	},
-	methods: {
-		handleClickOutside () {
-			this.$store.dispatch('CloseSideBar', { withoutAnimation: false })
-		}
-	}
+  name: 'Layout',
+  mixins: [ResizeMixin],
+  components: {
+    Navbar,
+    Sidebar,
+    AppMain
+  },
+  computed: {
+    ...mapGetters('app', {
+      sidebar: 'sidebar',
+      device: 'device'
+    }),
+    classObj () {
+      return {
+        hideSidebar: !this.sidebar.opened,
+        openSidebar: this.sidebar.opened,
+        withoutAnimation: this.sidebar.withoutAnimation,
+        mobile: this.device === 'mobile'
+      }
+    }
+  },
+  methods: {
+    handleClickOutside () {
+      this.$store.dispatch('app/CloseSideBar', { withoutAnimation: false })
+    }
+  }
 }
 </script>
 

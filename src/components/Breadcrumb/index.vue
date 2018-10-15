@@ -14,36 +14,36 @@
 import pathToRegexp from 'path-to-regexp'
 
 export default {
-	data () {
-		return {
-			levelList: null
-		}
-	},
-	watch: {
-		$route () {
-			this.getBreadcrumb()
-		}
-	},
-	created () {
-		this.getBreadcrumb()
-	},
-	methods: {
-		getBreadcrumb () {
-			const { params } = this.$route
-			let matched = this.$route.matched.filter(item => {
-				if (item.name) {
-					var toPath = pathToRegexp.compile(item.path)
-					item.path = toPath(params)
-					return true
-				}
-			})
-			const first = matched[0]
-			if (first && first.name !== 'dashboard') {
-				matched = [{ path: '/dashboard', meta: { title: 'Dashboard' } }].concat(matched)
-			}
-			this.levelList = matched
-		}
-	}
+  data () {
+    return {
+      levelList: null
+    }
+  },
+  watch: {
+    $route () {
+      this.getBreadcrumb()
+    }
+  },
+  created () {
+    this.getBreadcrumb()
+  },
+  methods: {
+    getBreadcrumb () {
+      const { params } = this.$route
+      let matched = this.$route.matched.filter(item => {
+        if (item.name) {
+          var toPath = pathToRegexp.compile(item.path)
+          item.path = toPath(params)
+          return true
+        }
+      })
+      const first = matched[0]
+      if (first && first.name !== 'dashboard') {
+        matched = [{ path: '/dashboard', meta: { title: 'Dashboard' } }].concat(matched)
+      }
+      this.levelList = matched
+    }
+  }
 }
 </script>
 
